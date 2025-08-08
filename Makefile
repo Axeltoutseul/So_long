@@ -6,7 +6,7 @@
 #    By: axbaudri <axbaudri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 17:33:18 by axbaudri          #+#    #+#              #
-#    Updated: 2025/08/08 13:57:12 by axbaudri         ###   ########.fr        #
+#    Updated: 2025/08/08 14:32:35 by axbaudri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ MLX = mlx_linux/libmlx_Linux.a
 $(LIBFT):
 	make -C libft/
 
-$(MLX)
+$(MLX):
 	make -c mlx_linux/
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
