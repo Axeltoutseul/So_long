@@ -6,7 +6,7 @@
 #    By: axbaudri <axbaudri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 17:33:18 by axbaudri          #+#    #+#              #
-#    Updated: 2025/08/08 14:32:35 by axbaudri         ###   ########.fr        #
+#    Updated: 2025/08/08 14:34:04 by axbaudri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(LIBFT):
 	make -C libft/
 
 $(MLX):
-	make -c mlx_linux/
+	make -C mlx_linux/
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)
