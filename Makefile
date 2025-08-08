@@ -6,7 +6,7 @@
 #    By: axbaudri <axbaudri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 17:33:18 by axbaudri          #+#    #+#              #
-#    Updated: 2025/08/08 13:17:48 by axbaudri         ###   ########.fr        #
+#    Updated: 2025/08/08 13:57:12 by axbaudri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,16 @@ OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)
-
+MLX = mlx_linux/libmlx_Linux.a
 
 $(LIBFT):
 	make -C libft/
+
+$(MLX)
+	make -c mlx_linux/
+
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
+	$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
